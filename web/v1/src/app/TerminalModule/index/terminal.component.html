@@ -1,0 +1,6 @@
+<input type="text" pInputText #remoteId  value="192.168.0.200" />
+<button type="button" (click)="onConnect(remoteId.value)" label="Connect" pButton></button>
+
+<div class="space">
+<p-terminal (handler)="onSendCommand($event)" prompt="CLIENT $" [response]="response"></p-terminal>
+</div>

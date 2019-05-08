@@ -1,0 +1,17 @@
+.ahuntsic {
+  width: 800px;
+  display: block;
+}
+
+.robot {
+  width: 500px;
+  border-radius: 8px;
+  margin-left: 18px;
+  box-shadow: 5px 5px 50px black;
+}
+
+.author {
+  position: fixed;
+  bottom: 0;
+  right: 30px;
+}

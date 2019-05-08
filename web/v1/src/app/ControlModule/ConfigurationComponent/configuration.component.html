@@ -1,0 +1,58 @@
+
+<p-carousel headerText="Keyboard Shortcuts" [value]="keyboardKeys" numVisible="6">
+    
+    <ng-template let-key pTemplate="item">
+
+            <p-panel [header]="key.KeyName" [style]="{'text-align':'center','background-color': 'white', 'border': '1px solid #11619b'}">
+                <img class="panelImg" [alt]="key.KeyName" [src]="key.KeyImg">
+                <hr class="ui-widget-content" style="border-top:0">
+                <input class="panelText" type="text" pInputText [(ngModel)]="key.KeyCmd" pTooltip="Enter your command" tooltipPosition="bottom" (input)="saveConfiguration()" />
+            </p-panel>
+
+    </ng-template>
+
+</p-carousel>
+
+<button class="removeButton" type="button" (click)="onRemove()" label="Remove" pButton></button>
+<button class="addButton" type="button" (click)="onAdd()" label="Add" pButton></button>
+
+<div class="ui-g">
+    <div class="ui-g-12 ui-widget-header textInterval">
+        <span class="ui-carousel-header-title">Key Hold Sending Interval: <span id="ms"> {{sendInterval}} ms </span></span>
+    </div>
+    <div class="ui-g-12">
+        <p-slider [(ngModel)]="sendInterval" [min]="20" [max]="200" [step]="10" [style]="{'width':'50%'}"></p-slider>
+    <div>
+</div>
+
+<div class="ui-g">
+    <div class="ui-g-12 ui-widget-header textInterval">
+        <span class="ui-carousel-header-title">Raspberry Pi Ip Address</span>
+    </div>
+    <div class="ui-g-12 ipField">
+        <input [(ngModel)]="ipAddress" type="text" pInputText/>
+    <div>
+</div>
+
+
+<p-dialog header="Select Key to Add" [(visible)]="displayAdd" modal="modal" width="480" minWidth="480" height="440" minHeight="440" responsive="true">
+
+
+    <div class="ui-g dialogKey">
+        <img *ngFor="let img of _keyboardKeyService.imgUrl" class="dialogImg" (click)="onImgClickAdd(img)" [src]="img">
+    </div>
+
+</p-dialog>
+
+
+<p-dialog header="Select Key to Remove" [(visible)]="displayRemove" modal="modal" width="480" minWidth="480" height="440" minHeight="440" responsive="true">
+
+
+    <div class="ui-g dialogKey">
+        <img *ngFor="let img of keyboardKeys" class="dialogImg" (click)="onImgClickRemove(img)" [src]="img.KeyImg">
+    </div>
+
+</p-dialog>
+
+
+

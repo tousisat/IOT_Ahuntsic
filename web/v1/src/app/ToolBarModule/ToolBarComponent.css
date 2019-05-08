@@ -1,0 +1,20 @@
+:host > nav.navbar-default {
+  background-color: #11619b;
+  height: 60px;
+  z-index: 100; 
+  top: 0;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+
+
+:host > nav.navbar-default .navbar-brand > img {
+  width: 30px;
+  height: auto;
+  float: right;
+  padding-top: 15px;
+  padding-right: 10px;
+}

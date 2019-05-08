@@ -1,0 +1,56 @@
+.panelText {
+    width: 100%;
+}
+
+.panelImg {
+    width: 40%;
+    height: auto;
+}
+
+.saveButton{
+    margin-top: 10px;
+    float: right;
+}
+
+.removeButton{
+    margin-top: 10px;
+    float: right;
+    background-color: #901414
+}
+
+.addButton{
+    margin-top: 10px;
+    float: right;
+    background-color: #11619b
+}
+
+.dialogImg{
+    width: 75px;
+    height: 75px;
+    padding: 2px 2px 2px 2px;
+    cursor: pointer;
+}
+
+.dialogKey{
+    background-color: white;
+    border: 3px solid #11619b;
+    border-radius: 5px;
+}
+
+.textInterval{
+    margin-top: 60px;
+    margin-bottom: 10px;
+    width: 50%;
+    border-radius: 5px;
+    font-size: 1em;
+    border: 3px solid black;
+}
+
+#ms{
+    color: #28b6f6;
+}
+
+.ipField{
+    padding-left: 1px;
+
+}
