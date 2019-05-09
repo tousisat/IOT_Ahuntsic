@@ -28,6 +28,13 @@
       ```
 5.  You can now connect remotely and use ssh with the rpi terminal
 
+# You can edit the services/GPIO.js file
+-  The library `onoff` use the BCM numbers instead of the GPIO.
+      - in your ssh terminal: `gpio readall` (http://wiringpi.com/the-gpio-utility/)
+      - you now have a full mapping of the GPIO pins
+
+> REF for  `onoff` library: - https://github.com/fivdi/onoff
+
 # Here are some git helpers when working remotely
 
 - git pull

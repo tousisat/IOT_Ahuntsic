@@ -1,5 +1,5 @@
 const app = require('express')();
-const ReceiveData = require('./services/ReceiveData')
+const {sendToClient} = require('./services/Messenger')
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -14,6 +14,7 @@ app.use((req, res, next) => {
 const server = app.listen(3000);
 const io = require('./socket').init(server);
 const port = require('./serialPort').init('/dev/ttyACM0', 9600);
+require('./services/GPIO');
 
 //----------------------- SOCKET LISTENERS --------------------------
 
@@ -25,7 +26,7 @@ io.on('connection', socket => {
 
   //Here are the messages received from the web
   socket.on("myClientMessage", (data) => {
-    ReceiveData.sendBack(data); //send back to the web
+    sendToClient(data); //send back to the web
     port.write(data); //send to the arduino
   })
 

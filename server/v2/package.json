@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "express": "^4.16.4",
+    "onoff": "^4.1.1",
     "serialport": "^7.1.5",
     "socket.io": "^2.2.0"
   }
