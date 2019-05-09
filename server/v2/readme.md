@@ -44,8 +44,11 @@
 
 # Run the server on the RPI on startup
 
-1. Open `/home/pi/.bashrc` on your pi
-2. Add the following line at the end of the file: `npm run build --prefix /home/pi/IOT_Ahuntsic/server/v2`
+1. Make sure your server is in `/home/pi/IOT_Ahuntsic/server/v2`
+2. Make sure you have Node 8 installed on your rpi (see top of readme)
+3. Open the server folder in the terminal and install all the dependencies: `npm install`
+4. Open `/home/pi/.bashrc` on your pi
+5. Add the following line at the end of the file: `npm run build --prefix /home/pi/IOT_Ahuntsic/server/v2`
 
 ## Other reference
 
