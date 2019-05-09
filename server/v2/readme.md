@@ -28,4 +28,10 @@
       ```
 5.  You can now connect remotely and use ssh with the rpi terminal
 
+# Here are some git helpers when working remotely
+
+- git pull
+- git commit -am "your message goes here"
+- git push
+
 > REF: - https://www.youtube.com/watch?v=zBgj-WPiL2g
