@@ -3,7 +3,17 @@
   "version": "1.0.0",
   "description": "A simple node server for the rpi robot",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "author": "raphael bridi",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "serialport": "^7.1.5",
+    "socket.io": "^2.2.0"
+  }
 }
