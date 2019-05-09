@@ -1,0 +1,11 @@
+{
+  "name": "node-server",
+  "version": "1.0.0",
+  "description": "A simple node server for the rpi robot",
+  "main": "index.js",
+  "scripts": {
+    "ssh": "ssh pi@raspberrypi"
+  },
+  "author": "raphael bridi",
+  "license": "ISC"
+}
