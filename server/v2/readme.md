@@ -29,16 +29,24 @@
 5.  You can now connect remotely and use ssh with the rpi terminal
 
 # You can edit the services/GPIO.js file
--  The library `onoff` use the BCM numbers instead of the GPIO.
-      - in your ssh terminal: `gpio readall` (http://wiringpi.com/the-gpio-utility/)
-      - you now have a full mapping of the GPIO pins
 
-> REF for  `onoff` library: - https://github.com/fivdi/onoff
+- The library `onoff` use the BCM numbers instead of the GPIO.
+  - in your ssh terminal: `gpio readall` (http://wiringpi.com/the-gpio-utility/)
+  - you now have a full mapping of the GPIO pins
+
+> REF for `onoff` library: - https://github.com/fivdi/onoff
 
 # Here are some git helpers when working remotely
 
 - git pull
 - git commit -am "your message goes here"
 - git push
+
+# Run the server on the RPI on startup
+
+1. Open `/home/pi/.bashrc` on your pi
+2. Add the following line at the end of the file: `npm run build --prefix /home/pi/IOT_Ahuntsic/server/v2`
+
+## Other reference
 
 > REF: - https://www.youtube.com/watch?v=zBgj-WPiL2g
