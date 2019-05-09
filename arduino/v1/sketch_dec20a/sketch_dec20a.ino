@@ -67,12 +67,6 @@ void loop()
           if (drapeau !=5){
             //on recule
             Recule();
-            //on ignore les autres commandes dans le port serie
-            for(int i=0; i<3000; i++){
-              if (Serial.available() > 0){
-                Serial.read();
-              }
-            }
             drapeau = 5;
           }
           break;

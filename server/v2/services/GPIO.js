@@ -9,6 +9,10 @@ const port = require('../serialPort').getPort();
 //BCM_23 -> GPIO_4 (CMD: gpio readall)
 const button = new Gpio(23, 'in', 'falling', {debounceTimeout: 10});
 
+//Configured GPIO_5 (BCM_24) to HIGH so I can add a pull up resistor to the button
+const pullUpGPIO = new Gpio(24, 'out');
+pullUpGPIO.writeSync(Gpio.HIGH);
+
 // cette fonction est appeler a chaque fois qu'on click sur le boutton de GPIO_4
 button.watch((err, value) => {
   if (err) {
