@@ -1,7 +1,7 @@
 //Variable moteur: 
-//{ arriere/droit, avant/droit, arriere/gauche, avant/gauche }
-int motor_avant[]    = {12, 7, 4, 2};
-int motor_arriere[]  = {13, 8, 5, 3};
+//{ arriere/droit, avant/droite, arriere/gauche, avant/gauche }
+int motor_avant[]    = {13, 5, 7, 2};
+int motor_arriere[]  = {12, 4, 8, 3};
 int motor_control[]  = {11,10, 9, 6};
 
 //Variable port serie
@@ -62,6 +62,21 @@ void loop()
             drapeau = 4;
           }
           break;
+        case 'e':
+          //le robot vient de toucher un mur
+          if (drapeau !=5){
+            //on recule
+            Recule();
+            //on ignore les autres commandes dans le port serie
+            for(int i=0; i<3000; i++){
+              if (Serial.available() > 0){
+                Serial.read();
+              }
+            }
+            drapeau = 5;
+          }
+          break;
+            
       }
       
   }
@@ -99,15 +114,15 @@ void Avance(){
 void Droite(){
     //Moteurs { arriere/droit, avant/droit } reculent
      for (int i=2; i <4; i++){
-      digitalWrite(motor_avant[i],0);
-      digitalWrite(motor_arriere[i],1);
+      digitalWrite(motor_avant[i],1);
+      digitalWrite(motor_arriere[i],0);
       digitalWrite(motor_control[i],1);
     }
     
      //Moteurs { arriere/gauche, avant/gauche } avancent
      for (int i=0; i <2; i++){
-      digitalWrite(motor_avant[i],1);
-      digitalWrite(motor_arriere[i],0);
+      digitalWrite(motor_avant[i],0);
+      digitalWrite(motor_arriere[i],1);
       digitalWrite(motor_control[i],1);
    }
 }
@@ -115,15 +130,15 @@ void Droite(){
 void Gauche(){
       //Moteurs { arriere/droit, avant/droit } avancent
      for (int i=2; i <4; i++){
-      digitalWrite(motor_avant[i],1);
-      digitalWrite(motor_arriere[i],0);
+      digitalWrite(motor_avant[i],0);
+      digitalWrite(motor_arriere[i],1);
       digitalWrite(motor_control[i],1);
     }
     
      //Moteurs { arriere/gauche, avant/gauche } reculent
      for (int i=0; i <2; i++){
-      digitalWrite(motor_avant[i],0);
-      digitalWrite(motor_arriere[i],1);
+      digitalWrite(motor_avant[i],1);
+      digitalWrite(motor_arriere[i],0);
       digitalWrite(motor_control[i],1);
    }
 }
