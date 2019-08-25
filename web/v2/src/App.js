@@ -14,8 +14,12 @@ const App = props => {
         component={pages.HOME_PAGE.component}
       />
       <Route
-        path={pages.PROFIL_PAGE.path}
-        component={pages.PROFIL_PAGE.component}
+        path={pages.SETUP_PAGE.path}
+        component={pages.SETUP_PAGE.component}
+      />
+      <Route
+        path={pages.PLAY_PAGE.path}
+        component={pages.PLAY_PAGE.component}
       />
       <Redirect to={pages.HOME_PAGE.path} />
     </Switch>

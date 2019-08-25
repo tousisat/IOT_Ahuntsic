@@ -1,9 +1,9 @@
 //REF LOGO: https://www.flaticon.com/free-icon/arab-man_1204753
 
 //-------------------------------------- VARIABLES -------------------------------------------------------
-$color-primary: #000000;
+$color-primary: #11619b;
 $color-primary-light: #616161;
-$color-secondary: #e4e4e4;
+$color-secondary: #303030;
 $color-secondary-dark: #9b9b9b;
 
 $color-info: #3d4d80;
@@ -19,12 +19,8 @@ $color-grey-light: #f2f2f2;
 
 $font-default: 1.6rem;
 
-$height-header: 9rem;
-$height-navbar: 3rem;
-$height-footer: 10rem;
-$height-main: calc(
-  100vh - #{$height-header} - #{$height-navbar} - #{$height-footer}
-);
+$height-header: 6rem;
+$height-main: calc(100vh - #{$height-header});
 
 :export {
   colorSuccess: $color-success;

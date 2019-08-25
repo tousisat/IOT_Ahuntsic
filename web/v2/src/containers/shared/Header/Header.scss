@@ -1,35 +1,49 @@
 @import "../../../variables";
 
 .header {
+  background-color: $color-primary;
+
+  @media screen and (max-height: 500px) {
+    margin-top: calc(-1 * #{$height-header});
+  }
   &_container {
     padding: 0 2rem;
     height: $height-header;
     display: flex;
     align-items: center;
-    &_logo {
-      height: 7rem;
-
-      svg {
-        height: 100%;
+    justify-content: space-between;
+    &_left {
+      display: flex;
+      align-items: center;
+      &_logo {
+        height: 4rem;
+        .icon-button:hover {
+          transform: none;
+        }
+      }
+      &_title {
+        margin-left: 1rem;
+        font-size: 2rem;
+        color: $color-white;
       }
     }
-    &_title {
-      height: 4rem;
-      overflow: hidden;
+    &_right {
+      &_button {
+        color: $color-white;
 
-      /* On screens that are 992px or less, set the background color to blue */
-      @media screen and (max-width: 350px) {
-        height: 3rem;
-        margin-left: -5rem;
-      }
-
-      svg {
-        height: 100%;
-        text {
-          fill: $color-primary;
+        @media screen and (max-height: 500px) {
+          position: fixed;
+          right: 1rem;
+          top: 1rem;
+          background-color: $color-primary;
+          box-shadow: 1px 1px 5px $color-black;
+          border-radius: 50%;
+          padding: 0.5rem;
+          display: block;
         }
-        tspan {
-          fill: $color-secondary;
+
+        svg {
+          font-size: 2.5rem;
         }
       }
     }

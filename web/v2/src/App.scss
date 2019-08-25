@@ -1,0 +1,16 @@
+@import "./variables";
+
+//OVERRIDING MATERIAL DESIGN COMPONENTS
+
+.MuiListItem-root {
+  .MuiListItemText-primary {
+    min-height: 1rem !important;
+    font-size: $font-default !important;
+    color: $color-secondary;
+  }
+
+  .MuiSvgIcon-root {
+    font-size: 2rem !important;
+    color: $color-secondary;
+  }
+}

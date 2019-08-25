@@ -1,10 +1,10 @@
 import React from "react";
 import * as actions from "../../store/actions";
 import { connect } from "react-redux";
-import "./ProfilPage.scss";
+import "./SetupPage.scss";
 
-const ProfilPage = props => {
-  return <div>Profil Page</div>;
+const SetupPage = props => {
+  return <div>Setup Page</div>;
 };
 
 const mapStateToProps = state => {
@@ -18,4 +18,4 @@ const mapDispatchToProps = state => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProfilPage);
+)(SetupPage);

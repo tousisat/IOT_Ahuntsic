@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import "./Layout.scss";
 
 import Header from "../../containers/shared/Header/Header";
-import NavBar from "../../containers/shared/NavBar/NavBar";
-import Footer from "../../containers/shared/Footer/Footer";
 import Toaster from "../../components/Toaster/Toaster";
 import Loader from "../../components/Loader/Loader";
 
@@ -22,9 +20,7 @@ const Layout = props => {
   return (
     <div className="layout">
       <Header />
-      <NavBar />
       <main>{props.children}</main>
-      <Footer />
       <Toaster
         show={isToasterShow}
         message={toasterMessage}
