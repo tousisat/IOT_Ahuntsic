@@ -1,0 +1,21 @@
+@import "../../variables";
+
+.layout {
+  overflow: hidden;
+  position: relative;
+  main {
+    min-height: $height-main;
+    font-size: $font-default;
+  }
+  &_loader {
+    top: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .loader_container {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+}

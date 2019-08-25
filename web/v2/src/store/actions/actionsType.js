@@ -1,0 +1,26 @@
+//LAYOUT
+export const SHOW_TOASTER = "SHOW_TOASTER";
+export const HIDE_TOASTER = "HIDE_TOASTER";
+export const SHOW_LOADER = "SHOW_LOADER";
+export const HIDE_LOADER = "HIDE_LOADER";
+
+//PROFILE_PAGE.AVATAR
+export const AVATAR_START = "AVATAR_START";
+export const AVATAR_SUCCESS = "AVATAR_SUCCESS";
+export const AVATAR_FAIL = "AVATAR_FAIL";
+
+//PROFILE_PAGE.BANNER
+export const BANNER_START = "BANNER_START";
+export const BANNER_SUCCESS = "BANNER_SUCCESS";
+export const BANNER_FAIL = "BANNER_FAIL";
+
+//PROFILE_PAGE.INTRO
+export const INTRO_START = "INTRO_START";
+export const INTRO_SUCCESS = "INTRO_SUCCESS";
+export const INTRO_FAIL = "INTRO_FAIL";
+
+//PROFILE_PAGE.TABS
+export const TABS_START = "TABS_START";
+export const TABS_SUCCESS = "TABS_SUCCESS";
+export const TABS_FAIL = "TABS_FAIL";
+export const TAB_SELECT = "TAB_SELECT";

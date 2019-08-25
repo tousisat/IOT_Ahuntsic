@@ -1,0 +1,61 @@
+@import "../../variables";
+
+.modal {
+  &-enter {
+    transform: translate(-50%, 20vh);
+    opacity: 0;
+  }
+  &-enter-active {
+    transform: translate(-50%, 50vh);
+    opacity: 1;
+    transition: opacity 300ms, transform 300ms;
+  }
+  &-enter-done {
+    transform: translate(-50%, 50vh);
+    opacity: 1;
+  }
+  &-exit {
+    transform: translate(-50%, 50vh);
+    opacity: 1;
+  }
+  &-exit-active {
+    opacity: 0;
+    transform: translate(-50%, 0vh);
+    transition: opacity 300ms, transform 300ms;
+  }
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 500;
+  background-color: $color-white;
+  max-width: 90%;
+  max-height: 90vh;
+  border: 1px solid $color-secondary;
+  box-shadow: 0 0 0.3rem $color-black;
+  border-radius: 0.3rem;
+  display: flex;
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    &_component {
+      height: 100%;
+      font-size: 1.4rem;
+    }
+    &_buttons {
+      border-top: 1px solid $color-primary;
+      display: flex;
+      justify-content: flex-end;
+      margin: 0 1.2rem;
+      padding: 0.7rem 0;
+      height: 100%;
+      .button {
+        margin-left: 1rem;
+        padding: 0.3rem 0.7rem;
+      }
+    }
+  }
+}

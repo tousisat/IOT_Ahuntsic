@@ -1,0 +1,60 @@
+@import "../../variables";
+
+.toaster {
+  left: 50%;
+  transform: translate(-50%, 0);
+  visibility: hidden;
+  width: 90%;
+  max-width: 60rem;
+  height: 7rem;
+  background-color: $color-info;
+  position: fixed;
+  z-index: 10;
+  transition: all 0.3s ease-out;
+  bottom: 0;
+  opacity: 0;
+
+  &_close {
+    cursor: pointer;
+    position: absolute;
+    right: 0.9rem;
+    top: 0.4rem;
+    button {
+      font-size: 1.8rem;
+    }
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+  &_message {
+    color: $color-white;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $font-default;
+  }
+
+  &--show {
+    visibility: visible;
+    bottom: 4rem;
+    opacity: 1;
+  }
+
+  &--success {
+    background-color: $color-success;
+  }
+  &--warning {
+    background-color: $color-warning;
+  }
+  &--error {
+    background-color: $color-error;
+  }
+  &--danger {
+    background-color: $color-danger;
+  }
+  &--info {
+    background-color: $color-info;
+  }
+}

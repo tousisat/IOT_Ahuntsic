@@ -1,0 +1,8 @@
+@import "../../variables";
+
+.message {
+  font-size: 1.2rem;
+  &--error {
+    color: $color-error;
+  }
+}

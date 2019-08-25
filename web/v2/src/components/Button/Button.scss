@@ -1,0 +1,48 @@
+@import "../../variables";
+
+.button {
+  height: 100%;
+  width: 100%;
+  background-color: $color-primary;
+  border: none;
+  color: $color-white;
+  outline: none;
+  cursor: pointer;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  transition: all 0.1s;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &:disabled {
+    color: $color-grey;
+    background-color: rgba($color-grey, 0.5);
+    cursor: not-allowed;
+    transform: none;
+  }
+  &_loader {
+    display: flex;
+    justify-content: center;
+  }
+
+  &--transparent {
+    background-color: transparent;
+    padding: 0;
+    &:disabled {
+      background-color: transparent;
+    }
+  }
+  &--info {
+    background-color: $color-info;
+  }
+  &--danger {
+    background-color: $color-danger;
+  }
+}

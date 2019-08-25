@@ -1,0 +1,37 @@
+@import "../../../variables";
+
+.header {
+  &_container {
+    padding: 0 2rem;
+    height: $height-header;
+    display: flex;
+    align-items: center;
+    &_logo {
+      height: 7rem;
+
+      svg {
+        height: 100%;
+      }
+    }
+    &_title {
+      height: 4rem;
+      overflow: hidden;
+
+      /* On screens that are 992px or less, set the background color to blue */
+      @media screen and (max-width: 350px) {
+        height: 3rem;
+        margin-left: -5rem;
+      }
+
+      svg {
+        height: 100%;
+        text {
+          fill: $color-primary;
+        }
+        tspan {
+          fill: $color-secondary;
+        }
+      }
+    }
+  }
+}
