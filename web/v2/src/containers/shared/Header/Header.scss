@@ -33,6 +33,7 @@
 
         @media screen and (max-height: 500px) {
           position: fixed;
+          z-index: 100;
           right: 1rem;
           top: 1rem;
           background-color: $color-primary;
