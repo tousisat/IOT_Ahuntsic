@@ -4,14 +4,20 @@ import { connect } from "react-redux";
 import "./PlayPage.scss";
 import Remote from "../../components/Remote/Remote";
 import { ReactComponent as NoCamImg } from "../../assets/images/noCamera.svg";
+import Button from "./../../components/Button/Button";
 
 const PlayPage = props => {
-  const { selkeys } = props;
+  const { selkeys, onConnect = () => {} } = props;
   return (
     <div className="play-page">
       <div className="play-page_camera">
         <div className="play-page_camera_none">
-          <NoCamImg />
+          <div className="play-page_camera_none_image">
+            <NoCamImg />
+          </div>
+          <div className="play-page_camera_none_connect">
+            <Button onConnect={onConnect}>Connect</Button>
+          </div>
         </div>
       </div>
       <div className="play-page_remote">

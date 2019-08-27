@@ -23,12 +23,18 @@
       width: 20%;
       max-width: 20rem;
       min-width: 10rem;
-      svg {
-        fill: rgba($color-white, 0.2);
+      margin-top: -8rem;
+      &_image {
+        svg {
+          fill: rgba($color-white, 0.2);
+        }
+      }
+      &_camera {
       }
     }
   }
   &_remote {
+    pointer-events: none;
     position: absolute;
     top: 0;
     left: 0;
