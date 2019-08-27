@@ -1,0 +1,111 @@
+@import "../../variables";
+
+.remote {
+  &_keyboard {
+    &--selected {
+      position: relative;
+      transform: scale(0.9);
+      &::after {
+        position: absolute;
+        content: " ";
+        background-color: rgba($color-info, 0.4);
+        border-radius: 0.9rem;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        pointer-events: none;
+        border: 2px solid rgba($color-secondary, 0.5);
+      }
+    }
+    &_key {
+      pointer-events: all;
+      cursor: pointer;
+      -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+      border-radius: 0.9rem;
+      box-shadow: 0 0 5px $color-black;
+      height: 7rem;
+      width: 7rem;
+      overflow: hidden;
+      @media screen and (max-width: 900px) {
+        height: 6rem;
+        width: 6rem;
+      }
+      @media screen and (max-width: 700px) {
+        height: 5rem;
+        width: 5rem;
+      }
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    &_left {
+      position: fixed; //TODO: change to position:absolute
+      top: $height-header;
+      left: 0;
+      height: 100%;
+      width: 11rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 0;
+      .remote_keyboard_key {
+        margin-bottom: 1rem;
+        max-height: 6rem;
+        max-width: 6rem;
+      }
+      @media screen and (max-height: 500px) {
+        top: 0;
+      }
+      @media screen and (max-width: 900px) {
+        width: 9rem;
+      }
+      @media screen and (max-width: 700px) {
+        width: 7rem;
+      }
+    }
+    &_right {
+      position: fixed; //TODO: change to position:absolute
+      bottom: 0;
+      right: 0;
+      width: 30rem;
+      height: 30rem;
+      @media screen and (max-width: 900px) {
+        height: 22rem;
+        width: 22rem;
+      }
+      @media screen and (max-width: 700px) {
+        width: 17rem;
+        height: 17rem;
+      }
+      &_group1 {
+        pointer-events: none;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 0;
+        @media screen and (max-width: 700px) {
+          padding: 1rem 0;
+        }
+      }
+      &_group2 {
+        pointer-events: none;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+        @media screen and (max-width: 700px) {
+          padding: 0 1rem;
+        }
+      }
+    }
+  }
+}

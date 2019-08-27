@@ -33,181 +33,181 @@ import LeftImg from "../assets/keyboard/computer_key_Arrow_Left.png";
 //---------------------------------------------------------
 
 export const UP_KEY = {
-  id: "Up",
+  id: "ArrowUp",
   image: UpImg,
   mapTo: "1"
 };
 
 export const DOWN_KEY = {
-  id: "Down",
+  id: "ArrowDown",
   image: DownImg,
   mapTo: "2"
 };
 
 export const RIGHT_KEY = {
-  id: "Right",
+  id: "ArrowRight",
   image: RightImg,
   mapTo: "3"
 };
 
 export const LEFT_KEY = {
-  id: "Left",
+  id: "ArrowLeft",
   image: LeftImg,
   mapTo: "4"
 };
 
 export const A_KEY = {
-  id: "A",
+  id: "a",
   image: AImg,
   mapTo: "a"
 };
 
 export const B_KEY = {
-  id: "B",
+  id: "b",
   image: BImg,
   mapTo: "b"
 };
 
 export const C_KEY = {
-  id: "C",
+  id: "c",
   image: CImg,
   mapTo: "c"
 };
 
 export const D_KEY = {
-  id: "D",
+  id: "d",
   image: DImg,
   mapTo: "d"
 };
 
 export const E_KEY = {
-  id: "E",
+  id: "e",
   image: EImg,
   mapTo: "e"
 };
 
 export const F_KEY = {
-  id: "F",
+  id: "f",
   image: FImg,
   mapTo: "f"
 };
 
 export const G_KEY = {
-  id: "G",
+  id: "g",
   image: GImg,
   mapTo: "g"
 };
 
 export const H_KEY = {
-  id: "H",
+  id: "h",
   image: HImg,
   mapTo: "h"
 };
 
 export const I_KEY = {
-  id: "I",
+  id: "i",
   image: IImg,
   mapTo: "i"
 };
 
 export const J_KEY = {
-  id: "J",
+  id: "j",
   image: JImg,
   mapTo: "j"
 };
 
 export const K_KEY = {
-  id: "K",
+  id: "k",
   image: KImg,
   mapTo: "k"
 };
 
 export const L_KEY = {
-  id: "L",
+  id: "l",
   image: LImg,
   mapTo: "l"
 };
 
 export const M_KEY = {
-  id: "M",
+  id: "m",
   image: MImg,
   mapTo: "m"
 };
 
 export const N_KEY = {
-  id: "N",
+  id: "n",
   image: NImg,
   mapTo: "n"
 };
 
 export const O_KEY = {
-  id: "O",
+  id: "o",
   image: OImg,
   mapTo: "o"
 };
 
 export const P_KEY = {
-  id: "P",
+  id: "p",
   image: PImg,
   mapTo: "p"
 };
 
 export const Q_KEY = {
-  id: "Q",
+  id: "q",
   image: QImg,
   mapTo: "q"
 };
 
 export const R_KEY = {
-  id: "R",
+  id: "r",
   image: RImg,
   mapTo: "r"
 };
 
 export const S_KEY = {
-  id: "S",
+  id: "s",
   image: SImg,
   mapTo: "s"
 };
 
 export const T_KEY = {
-  id: "T",
+  id: "t",
   image: TImg,
   mapTo: "t"
 };
 
 export const U_KEY = {
-  id: "U",
+  id: "u",
   image: UImg,
   mapTo: "u"
 };
 
 export const V_KEY = {
-  id: "V",
+  id: "v",
   image: VImg,
   mapTo: "v"
 };
 
 export const W_KEY = {
-  id: "W",
+  id: "w",
   image: WImg,
   mapTo: "w"
 };
 
 export const X_KEY = {
-  id: "X",
+  id: "x",
   image: XImg,
   mapTo: "x"
 };
 
 export const Y_KEY = {
-  id: "Y",
+  id: "y",
   image: YImg,
   mapTo: "y"
 };
 
 export const Z_KEY = {
-  id: "Z",
+  id: "z",
   image: ZImg,
   mapTo: "z"
 };
