@@ -3,11 +3,10 @@ import "./ImageSelector.scss";
 
 const ImageSelector = props => {
   //images = [{id: 123, image: "../logo.png"}]
-  const { images, onSelect = () => {}, selectedImagesIds = [] } = props;
-  const [selectedIds, setSelectedIds] = React.useState(selectedImagesIds);
+  const { images, onSelect = () => {}, selectedImages = [] } = props;
 
   const imagesView = images.map(({ id, image }) => {
-    const isSelected = Boolean(selectedIds.find(currentId => currentId === id));
+    const isSelected = Boolean(selectedImages.find(image => image.id === id));
     return (
       <div
         key={id}
@@ -20,26 +19,28 @@ const ImageSelector = props => {
       </div>
     );
   });
+
+  const handleSelect = el => {
+    if (el.target.alt === undefined) return;
+
+    const selectedIndex = selectedImages.findIndex(
+      image => image.id === el.target.alt
+    );
+
+    if (selectedIndex !== -1) {
+      //remove selection
+      const clonedArray = selectedImages.slice();
+      clonedArray.splice(selectedIndex, 1);
+      onSelect(clonedArray);
+    } else {
+      //add selection
+      const newSelection = images.find(img => img.id === el.target.alt);
+      onSelect([...selectedImages, newSelection]);
+    }
+  };
+
   return (
-    <div
-      className="image-selector"
-      onClick={el => {
-        if (el.target.alt === undefined) return;
-        const alreadySelectedIdIndex = selectedIds.findIndex(
-          currentId => currentId === el.target.alt
-        );
-        if (alreadySelectedIdIndex !== -1) {
-          //remove selection
-          selectedIds.splice(alreadySelectedIdIndex, 1);
-          setSelectedIds([...selectedIds]);
-          onSelect(selectedIds);
-        } else {
-          //add selection
-          setSelectedIds([...selectedIds, el.target.alt]);
-          onSelect([...selectedIds, el.target.alt]);
-        }
-      }}
-    >
+    <div className="image-selector" onClick={handleSelect}>
       {imagesView}
     </div>
   );

@@ -1,12 +1,18 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import * as actions from "./store/actions";
+
 import "./App.scss";
 
 import Layout from "./hoc/Layout/Layout";
 import * as pages from "./constants/navigation";
 
 const App = props => {
+  const { getSetupFromCache } = props;
+  React.useEffect(() => {
+    getSetupFromCache();
+  }, [getSetupFromCache]);
   let routes = (
     <Switch>
       <Route
@@ -33,7 +39,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    getSetupFromCache: () => dispatch(actions.getSetupFromCache())
+  };
 };
 
 export default connect(

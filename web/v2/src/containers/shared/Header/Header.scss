@@ -2,9 +2,14 @@
 
 .header {
   background-color: $color-primary;
+  position: fixed;
+  width: 100vw;
+  z-index: 1000;
+  box-shadow: 0 0 5px $color-secondary;
 
   @media screen and (max-height: 500px) {
     margin-top: calc(-1 * #{$height-header});
+    box-shadow: none;
   }
   &_container {
     padding: 0 2rem;

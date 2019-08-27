@@ -1,13 +1,22 @@
 @import "../../variables.scss";
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 .group-box {
   margin: 0.25rem;
-  &_box {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-  &_title {
-    font-size: 1.5rem;
+  &_fieldset {
+    background-color: $color-grey-light;
+    border: 1px solid rgba($color-primary, 0.2);
+    border-radius: 0.5rem;
+    &_box {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+    &_title {
+      margin-left: 0.7rem;
+      font-size: 1.5rem;
+      color: $color-primary;
+      font-family: "Roboto", sans-serif;
+    }
   }
 }
