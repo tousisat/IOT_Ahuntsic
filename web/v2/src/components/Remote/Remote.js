@@ -5,18 +5,19 @@ let selectedKeyRef = null;
 let keysArrayRef = [];
 
 const Remote = props => {
-  const { keysArray = [], onStart = () => {}, onEnd = () => {} } = props;
+  const { keysArray = [], onStart = () => { }, onEnd = () => { }, disabled = false } = props;
   const [selectedKey, setSelectedKey] = React.useState(null);
   selectedKeyRef = selectedKey;
   keysArrayRef = keysArray;
   React.useEffect(() => {
     document.addEventListener("keydown", handleKeyStart);
     document.addEventListener("keyup", handleKeyEnd);
+
     return () => {
       document.removeEventListener("keydown", handleKeyStart);
       document.removeEventListener("keyup", handleKeyEnd);
     };
-  }, []);
+  }, [disabled]);
 
   const keyUp = keysArray.find(({ id }) => id === keys.UP_KEY.id);
   const keyDown = keysArray.find(({ id }) => id === keys.DOWN_KEY.id);
@@ -31,6 +32,7 @@ const Remote = props => {
   );
   const handleClickStart = event => {
     event.preventDefault();
+    if (disabled) return;
     if (event.target.alt) {
       if (selectedKey) {
         onEnd(selectedKey);
@@ -41,12 +43,14 @@ const Remote = props => {
   };
   const handleClickEnd = event => {
     event.preventDefault();
+    if (disabled) return;
     if (event.target.alt) {
       setSelectedKey(null);
       onEnd(event.target.alt);
     }
   };
   const handleKeyStart = event => {
+    if (disabled) return;
     const recognizedKey = keysArrayRef.find(({ id }) => id === event.key);
     if (recognizedKey && selectedKeyRef !== recognizedKey.mapTo) {
       if (selectedKeyRef) {
@@ -57,6 +61,7 @@ const Remote = props => {
     }
   };
   const handleKeyEnd = event => {
+    if (disabled) return;
     const recognizedKey = keysArrayRef.find(({ id }) => id === event.key);
     if (recognizedKey && selectedKeyRef === recognizedKey.mapTo) {
       setSelectedKey(null);
@@ -79,18 +84,19 @@ const Remote = props => {
         <div className="remote_keyboard_left">
           {otherKeys
             ? otherKeys.map(({ id, image, mapTo }) => {
-                return (
-                  <div
-                    key={id}
-                    className={[
-                      "remote_keyboard_key",
-                      selectedKey === mapTo ? "remote_keyboard--selected" : ""
-                    ].join(" ")}
-                  >
-                    <img src={image} alt={mapTo} />
-                  </div>
-                );
-              })
+              return (
+                <div
+                  key={id}
+                  className={[
+                    "remote_keyboard_key",
+                    selectedKey === mapTo ? "remote_keyboard--selected" : "",
+                    disabled ? "remote_keyboard--disabled" : ""
+                  ].join(" ")}
+                >
+                  <img src={image} alt={mapTo} />
+                </div>
+              );
+            })
             : null}
         </div>
         <div className="remote_keyboard_right">
@@ -102,7 +108,8 @@ const Remote = props => {
                   ? selectedKey === keyUp.mapTo
                     ? "remote_keyboard--selected"
                     : ""
-                  : ""
+                  : "",
+                disabled ? "remote_keyboard--disabled" : ""
               ].join(" ")}
               style={keyUp ? {} : { visibility: "hidden" }}
             >
@@ -115,7 +122,8 @@ const Remote = props => {
                   ? selectedKey === keyDown.mapTo
                     ? "remote_keyboard--selected"
                     : ""
-                  : ""
+                  : "",
+                disabled ? "remote_keyboard--disabled" : ""
               ].join(" ")}
               style={keyDown ? {} : { visibility: "hidden" }}
             >
@@ -131,7 +139,8 @@ const Remote = props => {
                   ? selectedKey === keyLeft.mapTo
                     ? "remote_keyboard--selected"
                     : ""
-                  : ""
+                  : "",
+                disabled ? "remote_keyboard--disabled" : ""
               ].join(" ")}
               style={keyLeft ? {} : { visibility: "hidden" }}
             >
@@ -145,7 +154,8 @@ const Remote = props => {
                   ? selectedKey === keyRight.mapTo
                     ? "remote_keyboard--selected"
                     : ""
-                  : ""
+                  : "",
+                disabled ? "remote_keyboard--disabled" : ""
               ].join(" ")}
               style={keyRight ? {} : { visibility: "hidden" }}
             >

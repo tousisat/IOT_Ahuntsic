@@ -7,3 +7,8 @@ export const HIDE_LOADER = "HIDE_LOADER";
 //SETUP_PAGE
 export const UPDATE_SETUP = "UPDATE_SETUP";
 export const IS_FIRST_TIME_SETUP = "IS_FIRST_TIME_SETUP";
+
+//PLAY PAGE
+export const CONNECT = "CONNECT";
+export const CONNECT_START = "CONNECT_START";
+export const CONNECT_STOP = "CONNECT_STOP";

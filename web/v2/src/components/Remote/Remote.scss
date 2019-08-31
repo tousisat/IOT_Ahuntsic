@@ -18,6 +18,22 @@
         border: 2px solid rgba($color-secondary, 0.5);
       }
     }
+    &--disabled {
+      cursor: not-allowed !important;
+      position: relative;
+      opacity: .8;
+      &::after {
+        position: absolute;
+        content: " ";
+        background-color: rgba($color-grey, 0.9);
+        border-radius: 0.9rem;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        pointer-events: none;
+      }
+    }
     &_key {
       pointer-events: all;
       cursor: pointer;

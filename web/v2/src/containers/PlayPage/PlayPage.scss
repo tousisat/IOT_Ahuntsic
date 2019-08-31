@@ -29,7 +29,24 @@
           fill: rgba($color-white, 0.2);
         }
       }
-      &_camera {
+    }
+    &_ok {
+      max-width: 100%;
+      &_image {
+        width: 100%;
+        img {
+          width: 100%;
+          color: $color-grey;
+          font-size: 1.3rem;
+        }
+
+      }
+      &_disconnect {
+        position: fixed;
+        bottom: 2rem;
+        left: 2rem;
+        width: 3rem;
+
       }
     }
   }

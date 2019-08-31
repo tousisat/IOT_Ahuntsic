@@ -3,12 +3,14 @@ import thunk from "redux-thunk";
 
 import layoutReducer from "./reducers/layout";
 import setupReducer from "./reducers/setup";
+import playReducer from "./reducers/play";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   layout: layoutReducer,
-  setup: setupReducer
+  setup: setupReducer,
+  play: playReducer
 });
 
 const configureStore = () => {
