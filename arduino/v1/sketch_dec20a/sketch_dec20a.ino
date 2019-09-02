@@ -38,25 +38,25 @@ void loop()
       timer =0;
       
       switch (donneeRecu){
-        case 'u':
+        case '1':
           if (drapeau != 1){
             Avance();
             drapeau = 1;
           }
           break;
-        case 'd':
+        case '2':
           if (drapeau != 2){
             Recule();
             drapeau = 2;
           }
           break;
-        case 'r':
+        case '3':
           if (drapeau != 3){
             Droite();
             drapeau = 3;
           }
           break;
-        case 'l':
+        case '4':
           if (drapeau != 4){
             Gauche();
             drapeau = 4;
