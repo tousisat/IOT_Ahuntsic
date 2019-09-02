@@ -1,4 +1,6 @@
-const app = require('express')();
+const path = require('path');
+const express = require('express');
+const app = express();
 const {sendToClient} = require('./services/Messenger')
 
 app.use((req, res, next) => {
@@ -10,6 +12,11 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
 });
+
+app.use(express.static(path.join(__dirname, "web")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "web", "index.html"));
+})
 
 const server = app.listen(3000);
 const io = require('./socket').init(server);
