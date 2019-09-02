@@ -1,6 +1,15 @@
-<input type="text" pInputText #remoteId  value="192.168.0.200" />
-<button type="button" (click)="onConnect(remoteId.value)" label="Connect" pButton></button>
+<input type="text" pInputText #remoteId value="192.168.0.200" />
+<button
+  type="button"
+  (click)="onConnect(remoteId.value)"
+  label="Connect"
+  pButton
+></button>
 
 <div class="space" [hidden]="!canConnect">
-    <img [src]="cameraConnectionString" (error)="onCameraError()" (load)="onCameraSuccess()">
+  <img
+    [src]="cameraConnectionString"
+    (error)="onCameraError()"
+    (load)="onCameraSuccess()"
+  />
 </div>

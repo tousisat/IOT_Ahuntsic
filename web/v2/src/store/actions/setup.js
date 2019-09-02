@@ -1,4 +1,6 @@
 import * as actionTypes from "./actionsType";
+import { _connectStop } from "./play";
+import { showToaster } from "./layout";
 
 const _updateSetup = (ipaddress, selectedKeys, speed) => {
   return {
@@ -31,8 +33,14 @@ export const getSetupFromCache = () => dispatch => {
 };
 
 export const saveSetup = (ipaddress, selectedKeys, speed) => dispatch => {
+  //check if ipaddress has been changed
+  const oldIPAddress = localStorage.getItem("ipaddress");
+  if (oldIPAddress !== ipaddress) {
+    dispatch(_connectStop());
+  }
   localStorage.setItem("ipaddress", ipaddress);
   localStorage.setItem("selectedKeys", JSON.stringify(selectedKeys));
   localStorage.setItem("speed", speed);
   dispatch(_updateSetup(ipaddress, selectedKeys, speed));
+  dispatch(showToaster("Setting saved in cache!", "success"));
 };
