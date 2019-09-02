@@ -10,7 +10,7 @@ import Slider from "@material-ui/core/Slider";
 import Button from "./../../components/Button/Button";
 
 const SetupPage = props => {
-  const { ip, selkeys, spd, saveSetup } = props;
+  const { ip, selkeys, spd, saveSetup, history } = props;
   const [ipaddress, setIpAddress] = React.useState(ip);
   const [selectedKeys, setSelectedKeys] = React.useState(selkeys);
   const [speed, setSpeed] = React.useState(spd);
@@ -20,7 +20,7 @@ const SetupPage = props => {
     setSpeed(spd);
   }, [ip, selkeys, spd]);
   const saveHandler = () => {
-    saveSetup(ipaddress, selectedKeys, speed);
+    saveSetup(ipaddress, selectedKeys, speed, history);
   };
   return (
     <div className="setup-page">
@@ -86,8 +86,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    saveSetup: (ip, selkeys, spd) =>
-      dispatch(actions.saveSetup(ip, selkeys, spd))
+    saveSetup: (ip, selkeys, spd, history) =>
+      dispatch(actions.saveSetup(ip, selkeys, spd, history))
   };
 };
 

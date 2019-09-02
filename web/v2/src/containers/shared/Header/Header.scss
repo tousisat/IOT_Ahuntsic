@@ -22,14 +22,25 @@
       align-items: center;
       &_logo {
         height: 4rem;
-        .icon-button:hover {
-          transform: none;
+        .icon-button {
+          cursor: default;
+          &:hover {
+            transform: none;
+          }
         }
       }
-      &_title {
+      &_text {
+        display: flex;
+        flex-direction: column;
         margin-left: 1rem;
-        font-size: 2rem;
-        color: $color-white;
+        &_title {
+          font-size: 2rem;
+          color: $color-white;
+        }
+        &_subtitle {
+          margin-top: 0.2rem;
+          color: rgba($color-white, 0.6);
+        }
       }
     }
     &_right {

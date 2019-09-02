@@ -29,15 +29,12 @@ export const startConnection = ipaddress => dispatch => {
   init(ipaddress, callback => {
     switch (callback) {
       case "connect":
-        console.log("CONNECTED");
         dispatch(_connectStart());
         break;
       case "disconnect":
-        console.log("DISCONNECTED");
         dispatch(_connectStop());
         break;
       case "error":
-        console.log("ERROR");
         dispatch(
           showToaster(
             "Oups, something went wrong. Check your IP or your Robot!",
@@ -45,6 +42,8 @@ export const startConnection = ipaddress => dispatch => {
           )
         );
         dispatch(_connectStop());
+        break;
+      default:
         break;
     }
   });
@@ -57,14 +56,13 @@ export const endConnection = () => dispatch => {
 
 export const startKeyLoop = (key, loopIntervalMs) => dispatch => {
   getIO().emit(WEB_TO_SERVER_TAG, key);
-  console.log(key, loopIntervalMs);
+  console.log(key);
   playLoopInterval = setInterval(() => {
     getIO().emit(WEB_TO_SERVER_TAG, key);
-    console.log(key, loopIntervalMs);
+    console.log(key);
   }, loopIntervalMs);
 };
 
 export const stopKeyLoop = () => dispatch => {
   clearInterval(playLoopInterval);
-  console.log("STOP");
 };

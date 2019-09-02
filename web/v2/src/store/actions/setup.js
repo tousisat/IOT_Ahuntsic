@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionsType";
 import { _connectStop } from "./play";
 import { showToaster } from "./layout";
+import { PLAY_PAGE } from "../../constants/navigation";
 
 const _updateSetup = (ipaddress, selectedKeys, speed) => {
   return {
@@ -23,7 +24,7 @@ export const getSetupFromCache = () => dispatch => {
   const ipaddress = localStorage.getItem("ipaddress");
   const selectedKeys = localStorage.getItem("selectedKeys");
   const speed = localStorage.getItem("speed");
-  if ((ipaddress && selectedKeys && speed) !== null) {
+  if (ipaddress && ipaddress !== "") {
     dispatch(
       _updateSetup(ipaddress, JSON.parse(selectedKeys), parseInt(speed))
     );
@@ -32,15 +33,25 @@ export const getSetupFromCache = () => dispatch => {
   }
 };
 
-export const saveSetup = (ipaddress, selectedKeys, speed) => dispatch => {
+export const saveSetup = (
+  ipaddress,
+  selectedKeys,
+  speed,
+  history
+) => dispatch => {
   //check if ipaddress has been changed
   const oldIPAddress = localStorage.getItem("ipaddress");
   if (oldIPAddress !== ipaddress) {
     dispatch(_connectStop());
   }
-  localStorage.setItem("ipaddress", ipaddress);
-  localStorage.setItem("selectedKeys", JSON.stringify(selectedKeys));
-  localStorage.setItem("speed", speed);
-  dispatch(_updateSetup(ipaddress, selectedKeys, speed));
-  dispatch(showToaster("Setting saved in cache!", "success"));
+  if (ipaddress === "") {
+    dispatch(showToaster("Provide an IP address", "error"));
+  } else {
+    localStorage.setItem("ipaddress", ipaddress);
+    localStorage.setItem("selectedKeys", JSON.stringify(selectedKeys));
+    localStorage.setItem("speed", speed);
+    dispatch(_updateSetup(ipaddress, selectedKeys, speed));
+    dispatch(showToaster("Setting saved in cache!", "success"));
+    history.replace(PLAY_PAGE.path);
+  }
 };

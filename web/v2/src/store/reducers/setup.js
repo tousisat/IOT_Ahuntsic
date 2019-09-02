@@ -5,7 +5,7 @@ const initialState = {
   ipaddress: "",
   selectedKeys: [keys.UP_KEY, keys.DOWN_KEY, keys.RIGHT_KEY, keys.LEFT_KEY],
   speed: 100,
-  isFirstTime: true
+  isFirstTime: false
 };
 
 const reducer = (state = initialState, action) => {

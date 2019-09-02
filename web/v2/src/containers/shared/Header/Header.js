@@ -12,6 +12,7 @@ import { Menu, MenuItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import { MoreVert, Settings, PlayArrow } from "@material-ui/icons";
 
 const Header = props => {
+  const { isFirstTime, history } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleCloseMenu = () => {
@@ -19,7 +20,7 @@ const Header = props => {
   };
 
   const goToPage = path => {
-    props.history.replace(path);
+    history.replace(path);
     handleCloseMenu();
   };
 
@@ -28,12 +29,16 @@ const Header = props => {
       <div className="header_container">
         <div className="header_container_left">
           <div className="header_container_left_logo">
-            <IconButton
-              Icon={LogoImg}
-              onClick={() => goToPage(pages.HOME_PAGE.path)}
-            />
+            <IconButton Icon={LogoImg} />
           </div>
-          <div className="header_container_left_title">Bob The Robot</div>
+          <div className="header_container_left_text">
+            <div className="header_container_left_text_title">
+              Ahuntsic Robot
+            </div>
+            <div className="header_container_left_text_subtitle">
+              &#64; Raphael Bridi, Jacques Taillefer
+            </div>
+          </div>
         </div>
         <div className="header_container_right">
           <div className="header_container_right_button">
@@ -55,7 +60,10 @@ const Header = props => {
                 </ListItemIcon>
                 <ListItemText primary="Setup" />
               </MenuItem>
-              <MenuItem onClick={() => goToPage(pages.PLAY_PAGE.path)}>
+              <MenuItem
+                disabled={isFirstTime}
+                onClick={() => goToPage(pages.PLAY_PAGE.path)}
+              >
                 <ListItemIcon>
                   <PlayArrow />
                 </ListItemIcon>
@@ -70,7 +78,9 @@ const Header = props => {
 };
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    isFirstTime: state.setup.isFirstTime
+  };
 };
 
 const mapDispatchToProps = state => {
