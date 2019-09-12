@@ -37,7 +37,7 @@ export const startConnection = (ipaddress, port) => dispatch => {
       case "error":
         dispatch(
           showToaster(
-            "Oups, something went wrong. Check your IP or your Robot!",
+            "Oups, something went wrong. Check your IP, Port or Robot!",
             "error"
           )
         );

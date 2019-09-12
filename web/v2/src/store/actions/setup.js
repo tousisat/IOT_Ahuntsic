@@ -28,7 +28,12 @@ export const getSetupFromCache = () => dispatch => {
   const speed = localStorage.getItem("speed");
   if ((ipaddress && ipaddress !== "") || (port && port !== "")) {
     dispatch(
-      _updateSetup(ipaddress, parseInt(port), JSON.parse(selectedKeys), parseInt(speed))
+      _updateSetup(
+        ipaddress,
+        parseInt(port),
+        JSON.parse(selectedKeys),
+        parseInt(speed)
+      )
     );
   } else {
     dispatch(_firstTimeSetup());
@@ -45,7 +50,7 @@ export const saveSetup = (
   //check if ipaddress has been changed
   const oldIPAddress = localStorage.getItem("ipaddress");
   const oldPort = localStorage.getItem("port");
-  if ((oldIPAddress !== ipaddress) || (oldPort !== port)) {
+  if (oldIPAddress !== ipaddress || oldPort !== port.toString()) {
     dispatch(_connectStop());
   }
   if (ipaddress === "") {
