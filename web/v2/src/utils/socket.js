@@ -2,8 +2,8 @@ import { SOCKET_IP } from "./../constants/setup";
 
 let io;
 
-export const init = (ipaddress, callback) => {
-  io = require("socket.io-client")(SOCKET_IP(ipaddress), {
+export const init = (ipaddress, port, callback) => {
+  io = require("socket.io-client")(SOCKET_IP(ipaddress, port), {
     reconnection: false,
     timeout: 5000
   });

@@ -24,9 +24,9 @@ export const _connectStop = () => {
 
 //-------------------------------------------
 
-export const startConnection = ipaddress => dispatch => {
+export const startConnection = (ipaddress, port) => dispatch => {
   dispatch(_connect());
-  init(ipaddress, callback => {
+  init(ipaddress, port, callback => {
     switch (callback) {
       case "connect":
         dispatch(_connectStart());

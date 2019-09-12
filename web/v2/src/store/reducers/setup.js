@@ -3,6 +3,7 @@ import * as keys from "./../../constants/keyboard";
 
 const initialState = {
   ipaddress: "",
+  port: null,
   selectedKeys: [keys.UP_KEY, keys.DOWN_KEY, keys.RIGHT_KEY, keys.LEFT_KEY],
   speed: 100,
   isFirstTime: false
@@ -14,6 +15,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         ipaddress: action.ipaddress,
+        port: action.port,
         selectedKeys: action.selectedKeys,
         speed: action.speed,
         isFirstTime: false

@@ -10,28 +10,33 @@ import Slider from "@material-ui/core/Slider";
 import Button from "./../../components/Button/Button";
 
 const SetupPage = props => {
-  const { ip, selkeys, spd, saveSetup, history } = props;
-  const [ipaddress, setIpAddress] = React.useState(ip);
+  const { ip, port, selkeys, spd, saveSetup, history } = props;
+  const [ipaddressAndPort, setIpAddressAndPort] = React.useState(ip ? port ? `${ip}:${port}` : ip : "");
   const [selectedKeys, setSelectedKeys] = React.useState(selkeys);
   const [speed, setSpeed] = React.useState(spd);
   React.useEffect(() => {
-    setIpAddress(ip);
+    setIpAddressAndPort(ip ? port ? `${ip}:${port}` : ip : "");
     setSelectedKeys(selkeys);
     setSpeed(spd);
-  }, [ip, selkeys, spd]);
+  }, [ip, port, selkeys, spd]);
   const saveHandler = () => {
-    saveSetup(ipaddress, selectedKeys, speed, history);
+    const myCurrentIp = ipaddressAndPort.split(":")[0].trim(); //get ipaddress and trim
+    let myCurrentPort = ipaddressAndPort.split(":")[1]; //get port
+    myCurrentPort = myCurrentPort ? myCurrentPort : ""; //check if port provided
+    myCurrentPort = Math.abs(parseInt(myCurrentPort)); //convert port to number
+    if (isNaN(myCurrentPort)) myCurrentPort = ""; //empty port if NaN
+    saveSetup(myCurrentIp, myCurrentPort, selectedKeys, speed, history);
   };
   return (
     <div className="setup-page">
       <div className="setup-page_groups">
         <div className="setup-page_groups_ipaddress">
-          <GroupBox title="What's your robot Ip Address?">
+          <GroupBox title="What's your robot Ip Address and Port?">
             <div className="setup-page_groups_ipaddress_input">
               <Input
-                placeholder="<xxx.xxx.xxx.xxx>"
-                value={ipaddress}
-                onChange={el => setIpAddress(el.target.value)}
+                placeholder="<xxx.xxx.xxx.xxx:xxx>"
+                value={ipaddressAndPort}
+                onChange={el => setIpAddressAndPort(el.target.value)}
               />
             </div>
           </GroupBox>
@@ -79,6 +84,7 @@ const SetupPage = props => {
 const mapStateToProps = state => {
   return {
     ip: state.setup.ipaddress,
+    port: state.setup.port,
     selkeys: state.setup.selectedKeys,
     spd: state.setup.speed
   };
@@ -86,8 +92,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    saveSetup: (ip, selkeys, spd, history) =>
-      dispatch(actions.saveSetup(ip, selkeys, spd, history))
+    saveSetup: (ip, port, selkeys, spd, history) =>
+      dispatch(actions.saveSetup(ip, port, selkeys, spd, history))
   };
 };
 

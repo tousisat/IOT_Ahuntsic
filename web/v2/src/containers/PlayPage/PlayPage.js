@@ -10,11 +10,12 @@ import { CAMERA_IP } from "../../constants/setup";
 const PlayPage = props => {
   const {
     ipaddress,
+    port,
     selkeys,
     spd,
     isConnect,
-    startConnection = () => {},
-    endConnection = () => {},
+    startConnection = () => { },
+    endConnection = () => { },
     startKeyLoop,
     stopKeyLoop,
     isLoading
@@ -30,28 +31,28 @@ const PlayPage = props => {
             <div className="play-page_camera_none_connect">
               <Button
                 isLoading={isLoading}
-                onClick={() => startConnection(ipaddress)}
+                onClick={() => startConnection(ipaddress, port)}
               >
                 Connect
               </Button>
             </div>
           </div>
         ) : (
-          <div className="play-page_camera_ok">
-            <div className="play-page_camera_ok_image">
-              <img src={CAMERA_IP(ipaddress)} alt="webcam not working" />
-            </div>
-            <div className="play-page_camera_ok_disconnect">
-              <Button
-                isLoading={isLoading}
-                status="danger"
-                onClick={endConnection}
-              >
-                X
+            <div className="play-page_camera_ok">
+              <div className="play-page_camera_ok_image">
+                <img src={CAMERA_IP(ipaddress, port + 1)} alt="webcam not working" />
+              </div>
+              <div className="play-page_camera_ok_disconnect">
+                <Button
+                  isLoading={isLoading}
+                  status="danger"
+                  onClick={endConnection}
+                >
+                  X
               </Button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
       </div>
       <div className="play-page_remote">
         <Remote
@@ -70,6 +71,7 @@ const mapStateToProps = state => {
     selkeys: state.setup.selectedKeys,
     spd: state.setup.speed,
     ipaddress: state.setup.ipaddress,
+    port: state.setup.port,
     isLoading: state.play.isLoading,
     isConnect: state.play.isConnect
   };
@@ -79,7 +81,7 @@ const mapDispatchToProps = dispatch => {
   return {
     startKeyLoop: (key, spd) => dispatch(actions.startKeyLoop(key, spd)),
     stopKeyLoop: () => dispatch(actions.stopKeyLoop()),
-    startConnection: ipaddress => dispatch(actions.startConnection(ipaddress)),
+    startConnection: (ipaddress, port) => dispatch(actions.startConnection(ipaddress, port)),
     endConnection: () => dispatch(actions.endConnection())
   };
 };
